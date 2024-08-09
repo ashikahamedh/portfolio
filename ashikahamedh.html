@@ -1,0 +1,1141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="ashikahamedh.jpg" type="image">
+    <title>Ashik Ahamed H | Front-end Developer | Web Developer</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+<style>
+    body {
+        font-family: 'Times New Roman', serif;
+        background-color: rgba(0, 0, 0, 1);
+        color: #e0e0e0;
+        scroll-behavior: smooth;
+        margin: 0;
+        padding: 0;
+        transition: background-color 0.3s, color 0.3s;
+    }
+
+    header {
+        background-color: rgba(255, 255, 255, 0.1);
+        position: sticky;
+
+        width: 100%;
+        top: 0;
+        z-index: 1000;
+        transition: background-color 0.3s;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .header-nav {
+        margin: 0;
+        display: flex;
+        align-items: center;
+        
+    }
+
+    .header-nav a {
+        font-size: 1.2rem;
+        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        color: #e0e0e0;
+        text-decoration: none;
+        padding: 0.5rem 1rem;
+        transition: color 0.3s ease-in-out;
+        position: relative;
+    }
+
+    .header-nav a::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 0%;
+        height: 3px;
+        background-color: lightcoral;
+        transition: width 0.3s ease-in-out;
+    }
+
+    .header-nav a:hover::before {
+        width: 100%;
+    }
+
+    .toggle-switches {
+        display: flex;
+        align-items: center;
+        margin-left: 1rem;
+    }
+
+    .toggle-switches .switch {
+        position: relative;
+        display: inline-block;
+        width: 60px;
+        height: 34px;
+        margin-left: 1rem;
+    }
+
+    .toggle-switches .switch input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+    }
+
+    .toggle-switches .slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: lightcoral;
+        transition: .4s;
+        border-radius: 34px;
+    }
+
+    .toggle-switches .slider:before {
+        position: absolute;
+        content: "";
+        height: 26px;
+        width: 26px;
+        border-radius: 50%;
+        left: 4px;
+        bottom: 4px;
+        background-color: white;
+        transition: .4s;
+    }
+
+    .toggle-switches input:checked + .slider {
+        background-color: lightcoral;
+    }
+
+    .toggle-switches input:checked + .slider:before {
+        transform: translateX(26px);
+    }
+
+    .toggle-label {
+        font-size: 1.2rem;
+        color: #e0e0e0;
+    }
+
+    .section {
+        padding: 5rem 0;
+        background-color: rgba(255, 255, 255, 0.1);
+        transition: background-color 0.3s;
+    }
+
+    .section h2 {
+        font-size: 2.5em;
+        font-weight: bold;
+        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        margin-bottom: 1.5rem;
+        color: white;
+        text-align: center;
+    }
+
+    .intro-section {
+        text-align: center;
+        color: #ffffff;
+        background: url('https://source.unsplash.com/random/1920x1080') no-repeat center center/cover;
+        padding-top: 1rem;
+        transition: background-color 0.3s;
+    }
+
+    .content-section {
+        background-color: rgba(255, 255, 255, 0.1);
+        padding: 3rem 0;
+        transition: background-color 0.3s;
+    }
+
+    .contact-form {
+        background-color: #1f1f1f;
+        color: #e0e0e0;
+        padding: 2rem;
+        border-radius: 5px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        transition: background-color 0.3s, color 0.3s;
+    }
+
+    .contact-form input, .contact-form textarea {
+        background-color: #2e2e2e;
+        color: #e0e0e0;
+        border: 1px solid #ced4da;
+        border-radius: 5px;
+        padding: 0.75rem;
+        transition: background-color 0.3s, color 0.3s;
+    }
+
+    .contact-form input::placeholder, .contact-form textarea::placeholder {
+        color: #6c757d;
+    }
+
+    .contact-form input:focus, .contact-form textarea:focus {
+        border-color: lightgreen;
+        box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.25);
+    }
+
+    .certificates {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1.5rem;
+        padding: 1rem;
+    }
+
+    .certificates img {
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+        transition: transform 0.3s ease-in-out;
+    }
+
+    .certificates img:hover {
+        transform: scale(1.05);
+    }
+
+    .skills {
+        text-align: center;
+    }
+
+    .skills img {
+        background: none;
+        border: none;
+        box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+        transition: transform 0.3s ease-in-out;
+        margin: 0.5rem;
+    }
+
+    .skills img:hover {
+        transform: scale(1.1);
+    
+        
+    }
+
+    .skills .skill-img {
+        width: 120px;
+        height: 120px;
+        
+    }
+
+    .toggle-content {
+        display: none;
+    }
+
+    .toggle-content.active {
+        display: block;
+    }
+
+    @media (max-width: 768px) {
+        .header-nav {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .header-nav a {
+            padding: 0.5rem 0;
+        }
+
+        header {
+            justify-content: space-between;
+        }
+
+        .section {
+            padding: 2rem 1rem;
+        }
+
+        .intro-section {
+            padding-top: 4rem;
+        }
+
+        .skills .skill-img {
+            width: 80px;
+            height: 80px;
+        }
+    }
+</style>
+
+
+<header>
+    <ul class="col-12 d-flex justify-content-center align-items-center flex-nowrap header-nave list-inline mb-0 text-nowrap">
+        <li class="list-inline-item"><a href="#home">Home.</a></li>
+        <li class="list-inline-item"><a href="#about">About.</a></li>
+        <li class="list-inline-item"><a href="#education">Education.</a></li>
+        <li class="list-inline-item"><a href="#skills">Skills.</a></li>
+        <li class="list-inline-item"><a href="#projects">Projects.</a></li>
+        <li class="list-inline-item"><a href="#contact">Contact.</a></li>
+    </ul>
+</header>
+
+<style>
+    .header-nave a {
+        font-size: 1.4rem; 
+        padding: 0.9rem; 
+        color: white;
+        text-decoration: none;
+    }
+
+    @media (max-width: 576px) { 
+        .header-nave {
+            padding: 0;
+        }
+
+        .header-nave a {
+            font-size: 0.9rem; 
+            padding: 0.7rem; 
+        }
+
+        .header-nave li {
+            flex: 1; 
+         
+        }
+    }
+
+    .header-nave a {
+    position: relative;
+    text-decoration: none; 
+    color: inherit; 
+    padding-bottom: 2px; 
+}
+
+.header-nave a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background-color: lightcoral; 
+    transition: width 0.3s ease-in-out; 
+}
+
+.header-nave a:hover::after {
+    width: 100%; 
+}
+
+</style>
+
+
+<section id="home" class="intro-section">
+    <style>
+        .image-containerrr {
+            position: relative;
+            width: 100%;
+            max-width: 570px;
+            align-items: center;
+        
+            
+        }
+        .image-containerrr img {
+            width: 100%;
+            height: auto;
+          
+            
+      border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <center>
+    <div class="container">
+        <div class="image-containerrr ">
+            <a class=" transition text-decoration-none text-danger" style="font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;" href="https://www.linkedin.com/in/ashik-ahamed-h-aa5280310"><h1><b>ASHIK_AHAMED_H.</b></h1></a>
+            <style>
+                .transition{
+                    transition: 1s;
+                }
+            </style>
+           
+            <img class="img-fluid d-flex justify-content-center zoom-image mt-2" src="ashikahamedh.jpg" alt="Main Photo">
+            <style>
+                .zoom-image {
+                    transition: transform 0.3s ease; 
+                }
+                .zoom-image:hover {
+                    transform: scale(1.05); 
+                }
+               
+            </style>
+            <div class="text-overlayyy">
+                <br>
+                <h4 id="dynamic-text" class="text-bold text-danger">
+                    <b>I am a Front-end Developer</b><br>
+                </h4>
+            
+                <script>
+                    const element = document.getElementById('dynamic-text');
+                    const texts = [
+                       
+                        'I am a Front-end Developer & Web Developer'
+                    ];
+                    let currentIndex = 0;
+                    let textIndex = 0;
+                    let isTyping = true;
+                    let delay = 100; 
+                    let pauseDuration = 500; 
+            
+                    function type() {
+                        if (textIndex < texts[currentIndex].length) {
+                            element.innerHTML = `<b>${texts[currentIndex].substring(0, textIndex + 1)}</b>`;
+                            textIndex++;
+                            setTimeout(type, delay);
+                        } else {
+                            setTimeout(() => {
+                                isTyping = false;
+                                deleteText();
+                            }, pauseDuration);
+                        }
+                    }
+            
+                    function deleteText() {
+                        if (textIndex > 0) {
+                            element.innerHTML = `<b>${texts[currentIndex].substring(0, textIndex - 1)}</b>`;
+                            textIndex--;
+                            setTimeout(deleteText, delay);
+                        } else {
+                            isTyping = true;
+                            currentIndex = (currentIndex + 1) % texts.length;
+                            setTimeout(type, pauseDuration);
+                        }
+                    }
+            
+                    function startAnimation() {
+                        type();
+                    }
+            
+                    startAnimation();
+                </script>
+<br>
+                <h4 class="linespacing">Dive in to learn more about myself along with my skills and experience.</h4>
+            <style>
+                .linespacing{
+                   line-height: 140%;
+                   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+                }
+            </style>
+             
+               
+            </div>
+        </div>
+    </center>
+    </div>
+    <style>
+        .intro-section{
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+    </style>
+    <br>
+</section>
+
+<section id="about" class="section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 col-12 mb-4">
+                <center>
+                    
+                    <img src="ashik.png"  class="img-fluid minimize" alt="Ashik at desk">
+                <style>
+                    .minimize{
+                        height:70%;
+                        width:70% ;
+                    }
+                </style>
+                </center>
+            </div>
+          
+            <div class="col-lg-6 col-12 mb-4 mt-5 d-flex flex-column align-items-start">
+                
+                <h2 class="text-center mb-4 darkafter">ABOUT ME</h2>
+                <p class="justify">My name is Ashik Ahamed H and I am from Mettupalayam, Coimbatore, Tamilnadu. I am a B.Sc Computer Science graduate with a passion for front-end development and Web development. I have certifications in Front-end development technologies and I am always eager to learn and adapt to new tools and technologies.</p>
+                <div class="text-center mt-4">
+                    <a href="ASHIK AHAMED H - Resume.pdf" download class="btn btn-outline-dark font-weight-bold changetodark">Download Resume</a>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://www.linkedin.com/in/ashik-ahamed-h-aa5280310" download class="btn btn-outline-dark font-weight-bold changetodark">Hire Me</a>
+               
+                    <style>
+
+                        .justify{
+                            text-align: justify;
+                        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+                        font-size: 120%;
+                        color: white;
+                        line-height:200% ;
+
+                        }
+                        .changetodark{
+                            border-color: white;
+
+                            color: white;
+                        }
+                            .changetodark:hover{
+
+                                background-color: lightcoral;
+
+                            }
+                        
+                    </style>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<section id="education" class="section content-section">
+    <div class="container">
+        <h2 class="d-flex justify-content-start mt-4">Education</h2>
+        <div class="row">
+            <div class="col-md-4 mb-1">
+                <div class="education-cardc card">
+                    <div class="card-bodyc text-center">
+                        <img src="kongunadu.png" height="100" width="100" class="img-fluid  mb-3" alt="Metro School">
+                        <h6 class="card-title">Kongunadu Arts and Science College(Autonomous)</h6>
+                        <h6 class="card-subtitle mb-3 ">Coimbatore - 641029</h6>
+                        <p class="card-text">B.Sc Computer Science</p>
+                        <p class="card-text">Percentage: 84.00%</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="education-cardc card">
+                    <div class="card-bodyc text-center">
+                        <img src="metro.png" height="100" width="100" class="img-fluid  mb-3" alt="Metro School">
+                        <h6 class="card-title">Metro Matriculation Higher Secondary School</h6>
+                        <h6 class="card-subtitle mb-2 ">Mettupalayam - 641301</h6>
+                        <p class="card-text">Standard: XII</p>
+                        <p class="card-text">Percentage: 92.13%</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="education-cardc card">
+                    <div class="card-bodyc text-center">
+                        <img src="metro.png" height="100" width="100" class="img-fluid  mb-3" alt="Metro School">
+                        <h6 class="card-title">Metro Matriculation Higher Secondary School</h6>
+                        <h6 class="card-subtitle mb-2 ">Mettupalayam - 641301</h6>
+                        <p class="card-text">Standard: X</p>
+                        <p class="card-text">Percentage: 86.40%</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+
+    p,.card-title,.card-subtitle,.card-text{
+        color: white;
+        font-size: 85%;
+    }
+
+    .education-cardc:hover{
+        border-color: lightcoral;
+    }
+
+.education-cardc {
+    background-color: #ccc; 
+    border: 1px solid rgba(255, 255, 255, 0.1); 
+    border-radius: 8px;
+
+
+    
+}
+
+
+
+.card-bodyc {
+    padding: 1.5rem; 
+}
+
+@media (max-width: 768px) {
+    .education-cardc {
+        margin-bottom: 1rem; 
+    }
+}
+</style>
+
+
+<section id="skills" class="section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <h2 class="mb-4 d-flex justify-content-start" style="color: white;">My Programming Skills</h2>
+                <p class="justifycontent">"Here you can find my expertise in various programming languages, Web development technologies and tools that I frequently use in my projects. I am passionate about continuously learning and improving my skills along with continuous growing.</p>
+                <style>
+                    .justifycontent {
+                        text-align: justify;
+                        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+                        font-size: 120%;
+                        color: white;
+                        line-height: 200%;
+                    }
+                </style>
+                <br>
+                <div class="toggle-switches mb-4">
+                    <span class="toggle-label mr-2" style="color: white;">Skills</span>
+                    <label class="switch">
+                        <input type="checkbox" id="skills-tools-toggle" onchange="toggleSkillsTools()">
+                        <span class="slider round"></span>
+                    </label>
+                    <span class="toggle-label ml-2" style="color: white;">&nbsp;&nbsp;&nbsp;Tools</span>
+                </div>
+            </div>
+            <div class="col-md-6 text-center">
+                <br><br><br>
+                <div id="skills-list" class="d-flex flex-wrap justify-content-center">
+                    <div class="card m-2" style="width: 80px; height: 80px;">
+                        <div class="card-body p-0 d-flex align-items-center justify-content-center" data-toggle="tooltip" data-placement="top" title="HTML5">
+                            <img src="html.png" alt="HTML" class="img-fluid" style="width: 55px; height: 40px;  border-radius: 4px;">
+                        </div>
+                    </div>
+                    <div class="card m-2" style="width: 80px; height: 80px;">
+                        <div class="card-body p-0 d-flex align-items-center justify-content-center" data-toggle="tooltip" data-placement="top" title="CSS3">
+                            <img src="css.png" alt="CSS" class="img-fluid" style="width: 38px; height: 38px;  border-radius: 4px;">
+                        </div>
+                    </div>
+                    <div class="card m-2" style="width: 80px; height: 80px;">
+                        <div class="card-body p-0 d-flex align-items-center justify-content-center" data-toggle="tooltip" data-placement="top" title="Bootstrap">
+                            <img src="bootstrap.png" alt="Bootstrap" class="img-fluid" style="width: 60px; height: 42px;  border-radius: 4px;">
+                        </div>
+                    </div>
+                    <div class="card m-2" style="width: 80px; height: 80px;">
+                        <div class="card-body p-0 d-flex align-items-center justify-content-center" data-toggle="tooltip" data-placement="top" title="JavaScript">
+                            <img src="js.png" alt="JavaScript" class="img-fluid" style="width: 40px; height: 35px;  border-radius: 4px;">
+                        </div>
+                    </div>
+                    <div class="card m-2" style="width: 80px; height: 80px;">
+                        <div class="card-body p-0 d-flex align-items-center justify-content-center" data-toggle="tooltip" data-placement="top" title="PHP">
+                            <img src="php.png" alt="PHP" class="img-fluid" style="width: 50px; height: 29px;  border-radius: 4px;">
+                        </div>
+                    </div>
+                    <div class="card m-2" style="width: 80px; height: 80px;">
+                        <div class="card-body p-0 d-flex align-items-center justify-content-center" data-toggle="tooltip" data-placement="top" title="MySQL">
+                            <img src="mysql.png" alt="MySQL" class="img-fluid" style="width: 48px; height: 30px;  border-radius: 4px;">
+                        </div>
+                    </div>
+                </div>
+                <div id="tools-list" class="d-none d-flex flex-wrap justify-content-center">
+                    <div class="card m-2" style="width: 80px; height: 80px;">
+                        <div class="card-body p-0 d-flex align-items-center justify-content-center" data-toggle="tooltip" data-placement="top" title="Git">
+                            <img src="git.png" alt="Git" class="img-fluid" style="width: 48px; height: 48px;  border-radius: 4px;">
+                        </div>
+                    </div>
+                    <div class="card m-2" style="width: 80px; height: 80px;">
+                        <div class="card-body p-0 d-flex align-items-center justify-content-center" data-toggle="tooltip" data-placement="top" title="GitHub">
+                            <img src="github.png" alt="GitHub" class="img-fluid" style="width: 48px; height: 48px;  border-radius: 4px;">
+                        </div>
+                    </div>
+                    <div class="card m-2" style="width: 80px; height: 80px;">
+                        <div class="card-body p-0 d-flex align-items-center justify-content-center" data-toggle="tooltip" data-placement="top" title="VS Code">
+                            <img src="vscode.png" alt="Visual Studio Code" class="img-fluid" style="width: 38px; height: 38px;  border-radius: 4px;">
+                        </div>
+                    </div>
+                    <div class="card m-2" style="width: 80px; height: 80px;">
+                        <div class="card-body p-0 d-flex align-items-center justify-content-center" data-toggle="tooltip" data-placement="top" title="Figma">
+                            <img src="figma.png" alt="Figma" class="img-fluid" style="width: 35px; height: 38px;  border-radius: 4px;">
+                        </div>
+                    </div>
+                    <div class="card m-2" style="width: 80px; height: 80px;">
+                        <div class="card-body p-0 d-flex align-items-center justify-content-center" data-toggle="tooltip" data-placement="top" title="PicsArt">
+                            <img src="picsart.png" alt="PicsArt" class="img-fluid" style="width: 35px; height: 54px;  border-radius: 4px;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <style>
+                .card {
+                    background-color: #333;
+                    transition: transform 0.3s ease-in-out;
+                }
+
+                .card:hover {
+        transform: scale(1.05);
+        border-color: lightcoral;
+    }
+
+                .img-fluid{
+                    
+                    color: white;
+                    border-color: black;
+                    
+                }
+
+                .tooltip-inner {
+        background-color: lightcoral !important;
+        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        border-radius: 7%;
+        margin-top: 30%;
+        color: white !important;
+    }
+        
+      
+                
+                .card-body {
+                    padding: 0.5rem;
+                }
+            </style>
+        </div>
+    </div>
+</section>
+
+<script>
+    function toggleSkillsTools() {
+        var isChecked = document.getElementById('skills-tools-toggle').checked;
+        document.getElementById('skills-list').classList.toggle('d-none', isChecked);
+        document.getElementById('tools-list').classList.toggle('d-none', !isChecked);
+    }
+
+    $(function () {
+        $('[data-toggle="tooltip"]').tooltip();
+    });
+</script>
+
+<style>
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #666;
+    transition: .4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: .4s;
+}
+
+input:checked + .slider {
+    background-color: #2196F3;
+}
+
+input:checked + .slider:before {
+    transform: translateX(26px);
+}
+
+.slider.round {
+    border-radius: 34px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
+</style>
+
+
+
+
+
+
+
+
+<style>
+    .project-card {
+        position: relative;
+        overflow: hidden;
+        height: 500px;
+        width: 80%;
+        background-size: cover;
+        background-position: center;
+        border-radius:1%;
+        border: white;
+        border-left: 2%;
+    }
+    .project-card:hover .overlay {
+        opacity: 1;
+        
+
+        
+    }
+    .overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.6);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        opacity: 0;
+        transition: opacity 0.3s ease-in-out;
+    }
+    .overlay a {
+        color: white;
+        font-size: 18px;
+        margin: 0 10px;
+        padding: 10px 20px;
+        border: 2px solid white;
+        border-radius: 5px;
+        text-decoration: none;
+        transition: background 0.3s ease-in-out, color 0.3s ease-in-out;
+    }
+    .overlay a:hover {
+        background-color: lightcoral;
+        color: black;
+        transform: scale(1.05);
+  
+    }
+</style>
+
+
+<style>
+    p {
+        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        font-weight: bold;
+        font-size: 1.2em; 
+    }
+    .project-card {
+        position: relative;
+        background-size: cover;
+        background-position: center;
+        border: #fff;
+        height: 300px;
+        margin-bottom: 30px;
+        border: white;
+        border-left: 2%;
+    }
+    .project-card .overlay {
+        position: absolute;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.5);
+        width: 100%;
+        text-align: center;
+        padding: 10px 0;
+    }
+    .project-card .overlay a {
+        color: #fff;
+        text-decoration: none;
+        margin: 0 10px;
+    }
+    .text-justify {
+        text-align: justify;
+        line-height:200%;
+    }
+</style>
+
+
+<section id="projects" class="section content-section">
+<div class="container">
+    <h2 class="d-flex justify-content-start mt-4">My Projects</h2>
+    <div class="row">
+        <div class="col-12">
+            <p class="text-justify ">My projects showcase my proficiency in web development, combining creativity and technical skills. They range from dynamic websites to interactive web applications, each designed with a focus on functionality and user experience. I utilize modern web technologies such as HTML, CSS, JavaScript, Bootstrap, PHP, Ajax and jQuery to bring these projects to life.</p>
+        <br><br></div>
+    </div>
+    <div class="row">
+        <div class="col-md-6  d-flex justify-content-center">
+            <div class="project-card" style="background-image: url('proj1.png');">
+                <div class="overlay">
+                    <a href="https://ashikahamedh.neocities.org/resume/resume" target="_blank">Open</a>
+                    <a href="https://github.com/ashikahamedh/ashproject1/blob/main/resume.html" target="_blank">Code</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 d-flex justify-content-center">
+            <div class="project-card" style="background-image: url('proj2.png');">
+                <div class="overlay">
+                    <a href="https://ashikahamedh.neocities.org/dotted/model2" target="_blank">Open</a>
+                    <a href="https://github.com/ashikahamedh/ashproject2/blob/main/dotted.html" target="_blank">Code</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-6  d-flex justify-content-center mt-5">
+            
+            <div class="project-card" style="background-image: url('proj3.png');">
+                <div class="overlay">
+                    <a href="https://ashikahamedh.neocities.org/your_logo/home" target="_blank">Open</a>
+                    <a href="https://github.com/ashikahamedh/ashproject3" target="_blank">Code</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6  d-flex justify-content-center mt-5">
+            <div class="project-card" style="background-image: url('proj4.png');">
+                <div class="overlay">
+                    <a href="file:///E:/CREDENTIALS/PROGRAMMING%20LANGUAGES/VS%20CODE/myproject1.html/resume.html" target="_blank">Open</a>
+                    <a href="https://github.com/ashikahamedh/" target="_blank">Code</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</section>
+
+
+
+
+
+
+
+
+
+
+<section id="contact" class="section">
+    <div class="container">
+        <h2 class="col-12 d-flex justify-content-start helo">CONTACT ME</h2>
+        <div class="row">
+            <div class="col-md-6 mb-4">
+                <div class="contact-info">
+                    <p>If you have any questions, feel free to connect by the contact</p>
+                    <p>details below or by using the contact form.</p><br>
+                    <div class="mb-3">
+                        <i class="bx bx-map icon-size"></i>&nbsp;
+                        <label for="address" class="form-label">Address:</label>
+                        <p id="address">31 F1 Maniyakaran Kaadu Road - 2, Mettupalayam - 641301</p>
+                    </div>
+                    <div class="mb-3">
+                        <i class="bx bx-phone icon-size"></i>&nbsp;
+                        <label for="phone" class="form-label">Phone:</label>
+                        <p id="phone">+91 9677442740</p>
+                    </div>
+                    <div class="mb-3">
+                        <i class="bx bx-envelope icon-size"></i>&nbsp;
+                        <label for="email" class="form-label">Email:</label>
+                        <p id="emailid">ashikahamedh00@gmail.com</p><br>
+                    </div>
+                    <div class="social-icons mt-4">
+                        <a href="https://www.linkedin.com/in/ashik-ahamed-h-aa5280310" class="social-icon" data-toggle="tooltip" data-placement="top" title="LinkedIn">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="mailto:ashikahamedh00@gmail.com" class="social-icon" data-toggle="tooltip" data-placement="top" title="Gmail">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                        
+                        <a href="https://wa.me/919677442740" class="social-icon" data-toggle="tooltip" data-placement="top" title="WhatsApp">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                        
+                        <a href="https://www.instagram.com/ashikahamedh/" class="social-icon" data-toggle="tooltip" data-placement="top" title="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://www.facebook.com" class="social-icon" data-toggle="tooltip" data-placement="top" title="Facebook">
+                            <i class="fab fa-facebook"></i>
+                        </a>
+                        <a href="https://github.com/ashikahamedh" class="social-icon" data-toggle="tooltip" data-placement="top" title="GitHub">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="https://neocities.org/site/ashikahamedh" class="social-icon" data-toggle="tooltip" data-placement="top" title="Neocities">
+                            <i class="fas fa-globe"></i>
+                        </a>
+                       
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-6">
+                <form class="contact-form">
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Name</label>
+                        <input type="text" class="form-control" id="name" placeholder="Enter your Name" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="email" placeholder="Enter your Email" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="message" class="form-label">Message</label>
+                        <textarea class="form-control" id="message" rows="3" placeholder="Enter your message" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<footer class="changecolor">
+
+    <style>
+        .changecolor{
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+    </style>
+    <br>
+  
+   
+<span class="d-flex justify-content-center">&copy; Designed by ASHIK AHAMED H. All rights reserved.</span>
+    
+<br>
+</div>
+
+</footer>
+
+<style>
+    .social-icon {
+        color: black;
+        background-color: white;
+        padding: 10px;
+        border-radius: 50%;
+        text-align: center;
+        width: 40px;
+        height: 40px;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        margin-right: 10px;
+        text-decoration: none;
+        border: 2px solid white;
+    }
+
+    .social-icon:hover {
+        background-color: lightcoral;
+        color: white;
+        border-color: black;
+    }
+
+    .social-icon i {
+        font-size: 15px;
+    }
+
+    .tooltip-inner {
+        background-color: lightcoral !important;
+        border-radius: 7%;
+        margin-bottom: 11%;
+        color: white !important;
+    }
+
+    .icon-size {
+        font-size: 24px; 
+        vertical-align:-10%; 
+        margin-right: -1px; 
+    }
+
+    #phone,#emailid,#address{
+        margin-left: 7%;
+    }
+
+    #contact h2 {
+        font-size: 2.5em; 
+        font-weight: bold;
+        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; 
+    }
+
+    #contact .form-label, #contact .bx {
+        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        font-weight: bold;
+        font-size: 1.5em; 
+    }
+
+    #contact .contact-info p {
+        font-size: 1.1em; 
+    }
+</style>
+
+<script>
+    $(function () {
+        $('[data-toggle="tooltip"]').tooltip();
+    });
+
+    document.getElementById('theme-toggle').addEventListener('change', function () {
+        document.body.classList.toggle('dark-theme', this.checked);
+    });
+
+    document.getElementById('skills-tools-toggle').addEventListener('change', function () {
+        const skillsTools = document.querySelector('.skills');
+        skillsTools.classList.toggle('active', this.checked);
+    });
+</script>
+
+
+<button class="scroll-to-top" id="scrollToTopBtn"></button>
+<style>
+    .scroll-to-top {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background-color: white;
+        color: #333;
+        border: none;
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        cursor: pointer;
+        z-index: 1000;
+        transition: opacity 0.3s ease;
+        opacity: 0;
+    }
+
+    .scroll-to-top:hover {
+        background-color: lightcoral;
+    }
+
+    .scroll-to-top:before {
+        content: '\2191'; 
+        font-size: 30px;
+      
+    }
+
+
+    .scroll-to-top.show {
+        opacity: 1;
+    }
+</style>
+
+<script>
+    
+    const scrollToTopBtn = document.getElementById('scrollToTopBtn');
+
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 300) {
+            scrollToTopBtn.classList.add('show');
+        } else {
+            scrollToTopBtn.classList.remove('show');
+        }
+    });
+
+
+    scrollToTopBtn.addEventListener('click', () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+</script>
+</body>
+
+</html>
+
+
+
+
+
+
+
+
